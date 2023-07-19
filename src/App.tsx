@@ -11,7 +11,10 @@ import NotFound from './pages/not-found';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={ <Login /> } />
+      <Route
+        path="/"
+        element={ <Login /> }
+      />
       <Route path="/search" element={ <Search /> } />
       <Route path="/album/:id" element={ <Album /> } />
       <Route path="/favorites" element={ <Favorites /> } />
