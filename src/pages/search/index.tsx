@@ -1,5 +1,10 @@
+import Header from '../../components/header';
+
 export default function Search() {
   return (
-    <h1>Search</h1>
+    <>
+      <Header />
+      <h1>Search</h1>
+    </>
   );
 }
