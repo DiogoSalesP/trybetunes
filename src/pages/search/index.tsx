@@ -1,5 +1,5 @@
 export default function Search() {
   return (
-    <h1>Searh</h1>
+    <h1>Search</h1>
   );
 }
