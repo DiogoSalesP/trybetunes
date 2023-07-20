@@ -58,7 +58,7 @@ export default function Search() {
       {artist && <p>{`Resultado de álbuns de: ${artist}`}</p>}
       {albumEmpty ? <h1>Nenhum album foi encontrado</h1> : (
         albums?.map((album) => (
-          <NavLink to={ `/album/:${album.collectionId}` } key={ album.collectionId }>
+          <NavLink to={ `/album/${album.collectionId}` } key={ album.collectionId }>
             <p>{album.collectionName}</p>
             <p>{album.artistName}</p>
           </NavLink>
