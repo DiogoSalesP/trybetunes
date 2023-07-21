@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Header from '../../components/header';
 import searchAlbumsAPI from '../../service/searchAlbumAPI';
 import { AlbumsType } from '../../types';
+import Loading from '../../components/loading';
 
 export default function Search() {
   const [search, setSearch] = useState('');
@@ -10,6 +11,10 @@ export default function Search() {
   const [disble, setDisable] = useState(true);
   const [albums, setAlbums] = useState<AlbumsType[]>();
   const [albumEmpty, setalbumEmpty] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  console.log(search);
+  console.log(artist);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { value } = event.target;
@@ -22,6 +27,7 @@ export default function Search() {
   }
 
   async function handleClick() {
+    setLoading(true);
     setArtist(search);
     setSearch('');
     const searchAlbum = await searchAlbumsAPI(search);
@@ -31,6 +37,11 @@ export default function Search() {
       setalbumEmpty(false);
     }
     setAlbums(searchAlbum);
+    setLoading(false);
+  }
+
+  if (loading) {
+    return <Loading />;
   }
 
   return (
