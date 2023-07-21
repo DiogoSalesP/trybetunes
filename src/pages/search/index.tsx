@@ -13,9 +13,6 @@ export default function Search() {
   const [albumEmpty, setalbumEmpty] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  console.log(search);
-  console.log(artist);
-
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { value } = event.target;
     if (value.length >= 2) {
