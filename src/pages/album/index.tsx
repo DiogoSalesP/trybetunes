@@ -20,9 +20,6 @@ export default function Album() {
     }
   }
 
-  console.log(artist);
-  console.log(musics);
-
   useEffect(() => {
     if (!musics) {
       setLoading(true);
@@ -48,6 +45,7 @@ export default function Album() {
           key={ music.trackId }
           trackName={ music.trackName }
           previewUrl={ music.previewUrl }
+          trackId={ music.trackId }
         />
       ))}
     </>
