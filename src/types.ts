@@ -41,6 +41,7 @@ export type CollectionType = {
 };
 
 export type AlbumType = {
+  0: AlbumType
   artistId : number
   artistName : string
   artistViewUrl : string

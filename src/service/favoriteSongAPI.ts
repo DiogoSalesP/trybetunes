@@ -18,3 +18,8 @@ export default function addSong(song: AlbumType) {
     saveFavoriteSongs([...favoriteSongs, song]);
   }
 }
+
+export function getFavoriteSongs() {
+  const favoriteSongs = readFavoriteSongs();
+  return favoriteSongs;
+}
