@@ -2,20 +2,24 @@ import { useState } from 'react';
 import addSong from '../../service/favoriteSongAPI';
 import getMusic from '../../service/musicsAPI';
 import Loading from '../loading';
+import { AlbumType } from '../../types';
 
 type MusicCardProps = {
   trackName: string
   previewUrl: string
   trackId: number | string
+  musicsFavorites: boolean
+
 };
 
-export default function MusicCard({ trackName, previewUrl, trackId }: MusicCardProps) {
+export default function MusicCard({
+  trackName, previewUrl, trackId, musicsFavorites }: MusicCardProps) {
   const [loanding, setLoading] = useState(false);
 
-  async function handleClick() {
+  async function handleChange() {
     setLoading(true);
-    const music = await getMusic(trackId.toString());
-    addSong(music);
+    const music: AlbumType = await getMusic(trackId.toString());
+    addSong(music[0]);
     setLoading(false);
   }
 
@@ -30,10 +34,12 @@ export default function MusicCard({ trackName, previewUrl, trackId }: MusicCardP
         O seu navegador não suporta o elemento
         <code>audio</code>
       </audio>
-      <label htmlFor="favorite">
+      <label htmlFor={ trackId.toString() }>
         <input
           type="checkbox"
-          onClick={ handleClick }
+          id={ trackId.toString() }
+          onChange={ handleChange }
+          checked={ musicsFavorites }
         />
       </label>
     </div>
