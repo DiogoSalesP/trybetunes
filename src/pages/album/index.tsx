@@ -5,14 +5,12 @@ import Header from '../../components/header';
 import getMusic from '../../service/musicsAPI';
 import { AlbumType, CollectionType } from '../../types';
 import Loading from '../../components/loading';
-import { getFavoriteSongs } from '../../service/favoriteSongAPI';
 
 export default function Album() {
   const { id } = useParams();
   const [artist, setArtist] = useState<CollectionType>();
   const [musics, setMusics] = useState<AlbumType[]>();
   const [loading, setLoading] = useState(true);
-  const [musicsFavorites, setMusicsFavorites] = useState<AlbumType[]>([]);
 
   async function handleFetch(albumId: string | undefined) {
     if (albumId) {
@@ -21,16 +19,6 @@ export default function Album() {
       setMusics(result.slice(1));
     }
   }
-
-  async function handleFavoriteMusics() {
-    setLoading(true);
-    const result = await getFavoriteSongs();
-    setMusicsFavorites(result);
-    setLoading(false);
-  }
-
-  useEffect(() => {
-  }, [musicsFavorites]);
 
   useEffect(() => {
     if (!musics) {
@@ -43,7 +31,6 @@ export default function Album() {
 
   useEffect(() => {
     handleFetch(id);
-    handleFavoriteMusics();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -61,8 +48,6 @@ export default function Album() {
           trackName={ music.trackName }
           previewUrl={ music.previewUrl }
           trackId={ music.trackId }
-          musicsFavorites={ musicsFavorites
-            .some((musicS) => musicS.trackId === music.trackId) }
         />
       ))}
     </>
