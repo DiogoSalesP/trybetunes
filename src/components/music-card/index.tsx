@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import addSong, { getFavoriteSongs } from '../../service/favoriteSongAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../../service/favoriteSongAPI';
 import getMusic from '../../service/musicsAPI';
 import Loading from '../loading';
 import { AlbumType } from '../../types';
@@ -7,7 +7,7 @@ import { AlbumType } from '../../types';
 type MusicCardProps = {
   trackName: string
   previewUrl: string
-  trackId: number | string
+  trackId: number
 };
 
 export default function MusicCard({ trackName, previewUrl, trackId }: MusicCardProps) {
@@ -28,8 +28,12 @@ export default function MusicCard({ trackName, previewUrl, trackId }: MusicCardP
 
   async function handleChange() {
     setLoading(true);
-    const music: AlbumType = await getMusic(trackId.toString());
-    addSong(music[0]);
+    if (!checked) {
+      const music: AlbumType = await getMusic(trackId.toString());
+      addSong(music[0]);
+    } else {
+      removeSong(trackId);
+    }
     handleResult();
     setLoading(false);
   }
