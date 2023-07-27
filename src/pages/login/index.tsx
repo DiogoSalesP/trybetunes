@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { INITIAL_STATE } from '../../types';
+import { CreateUserType, INITIAL_STATE } from '../../types';
 import { createUser } from '../../service/userAPI';
 
 // type LoginProps = {
@@ -9,7 +9,7 @@ import { createUser } from '../../service/userAPI';
 
 export default function Login() {
   const navigate = useNavigate();
-  const [user, setUser] = useState(INITIAL_STATE);
+  const [user, setUser] = useState<CreateUserType>(INITIAL_STATE);
   const [disable, setDisable] = useState(true);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
