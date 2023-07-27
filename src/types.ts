@@ -1,9 +1,15 @@
 export const INITIAL_STATE = {
   name: '',
+  email: '',
+  description: '',
+  image: '',
 };
 
 export type CreateUserType = {
   name: string
+  email: string
+  description: string
+  image: string
 };
 
 export type AlbumsType = {
