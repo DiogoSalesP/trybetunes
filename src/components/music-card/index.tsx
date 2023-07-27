@@ -8,9 +8,11 @@ type MusicCardProps = {
   trackName: string
   previewUrl: string
   trackId: number
+  handleClick: (song: number) => void
 };
 
-export default function MusicCard({ trackName, previewUrl, trackId }: MusicCardProps) {
+export default function MusicCard({ trackName, previewUrl, trackId,
+  handleClick }: MusicCardProps) {
   const [loanding, setLoading] = useState(false);
   const [checked, setChecked] = useState(false);
 
@@ -28,11 +30,12 @@ export default function MusicCard({ trackName, previewUrl, trackId }: MusicCardP
 
   async function handleChange() {
     setLoading(true);
-    if (!checked) {
+    if (checked) {
+      removeSong(trackId);
+      handleResult();
+    } else {
       const music: AlbumType = await getMusic(trackId.toString());
       addSong(music[0]);
-    } else {
-      removeSong(trackId);
     }
     handleResult();
     setLoading(false);
@@ -55,6 +58,7 @@ export default function MusicCard({ trackName, previewUrl, trackId }: MusicCardP
           id={ trackId.toString() }
           onChange={ handleChange }
           checked={ checked }
+          onClick={ () => handleClick(trackId) }
         />
       </label>
     </div>
