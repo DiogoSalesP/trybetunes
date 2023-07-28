@@ -1,0 +1,25 @@
+header {
+  background-color: white;
+  color: #444955;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  margin-top: 25px;
+}
+
+.nav-link {
+  color: #444955;
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+}
+
+.img-p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
