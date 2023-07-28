@@ -4,11 +4,13 @@ import { CreateUserType, INITIAL_STATE } from '../../types';
 import { createUser } from '../../service/userAPI';
 import './login.css';
 import logo from '../../images/logo.png';
+import Loading from '../../components/loading';
 
 export default function Login() {
   const navigate = useNavigate();
   const [user, setUser] = useState<CreateUserType>(INITIAL_STATE);
   const [disable, setDisable] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -25,7 +27,12 @@ export default function Login() {
 
   function handleClick() {
     createUser(user);
+    setLoading(true);
     navigate('search');
+  }
+
+  if (loading) {
+    return <Loading />;
   }
 
   const { name } = user;
