@@ -4,6 +4,7 @@ import Header from '../../components/header';
 import searchAlbumsAPI from '../../service/searchAlbumAPI';
 import { AlbumsType } from '../../types';
 import Loading from '../../components/loading';
+import './seach.css';
 
 export default function Search() {
   const [search, setSearch] = useState('');
@@ -42,7 +43,7 @@ export default function Search() {
   }
 
   return (
-    <>
+    <div className="search">
       <Header />
       <form>
         <label htmlFor="search-artist">
@@ -71,7 +72,6 @@ export default function Search() {
             <p>{album.artistName}</p>
           </NavLink>
         )))}
-
-    </>
+    </div>
   );
 }
