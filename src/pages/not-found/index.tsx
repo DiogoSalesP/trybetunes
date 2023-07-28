@@ -1,5 +1,12 @@
+import ops from '../../images/Ops.png';
+import notFound from '../../images/notFound.png';
+import './notFound.css';
+
 export default function NotFound() {
   return (
-    <h1>Not found</h1>
+    <div>
+      <img src={ ops } alt="" />
+      <img src={ notFound } alt="" />
+    </div>
   );
 }
