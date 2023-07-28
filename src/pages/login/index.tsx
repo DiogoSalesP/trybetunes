@@ -2,10 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CreateUserType, INITIAL_STATE } from '../../types';
 import { createUser } from '../../service/userAPI';
-
-// type LoginProps = {
-//   setCreateUser: (user: CreateUserType) => void
-// };
+import './login.css';
+import logo from '../../images/logo.png';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -32,25 +30,28 @@ export default function Login() {
 
   const { name } = user;
   return (
-    <form>
-      <label htmlFor="name">
-        Nome:
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={ name }
-          onChange={ handleChange }
-          required
-        />
-      </label>
-      <button
-        type="button"
-        onClick={ handleClick }
-        disabled={ disable }
-      >
-        Entrar
-      </button>
-    </form>
+    <div className="login">
+      <img src={ logo } alt="" />
+      <form>
+        <label htmlFor="name">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={ name }
+            onChange={ handleChange }
+            placeholder="Qual é o seu nome?"
+            required
+          />
+        </label>
+        <button
+          type="button"
+          onClick={ handleClick }
+          disabled={ disable }
+        >
+          ENTRAR
+        </button>
+      </form>
+    </div>
   );
 }
