@@ -1,3 +1,10 @@
-img {
-  margin: 25px
+.container-not-found {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found img{
+  padding: 50px;
 }

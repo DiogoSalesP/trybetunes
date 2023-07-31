@@ -4,9 +4,11 @@ import './notFound.css';
 
 export default function NotFound() {
   return (
-    <div>
-      <img src={ ops } alt="" />
-      <img src={ notFound } alt="" />
+    <div className="container-not-found">
+      <div className="not-found">
+        <img src={ ops } alt="ops" />
+        <img src={ notFound } alt="not-found" />
+      </div>
     </div>
   );
 }
