@@ -37,28 +37,30 @@ export default function Login() {
 
   const { name } = user;
   return (
-    <div className="login">
-      <img src={ logo } alt="" />
-      <form>
-        <label htmlFor="name">
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={ name }
-            onChange={ handleChange }
-            placeholder="Qual é o seu nome?"
-            required
-          />
-        </label>
-        <button
-          type="button"
-          onClick={ handleClick }
-          disabled={ disable }
-        >
-          ENTRAR
-        </button>
-      </form>
+    <div className="container-login">
+      <div className="login">
+        <img src={ logo } alt="" />
+        <form>
+          <label htmlFor="name">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={ name }
+              onChange={ handleChange }
+              placeholder="Qual é o seu nome?"
+              required
+            />
+          </label>
+          <button
+            type="button"
+            onClick={ handleClick }
+            disabled={ disable }
+          >
+            ENTRAR
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
