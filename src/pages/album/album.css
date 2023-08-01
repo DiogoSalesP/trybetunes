@@ -1,0 +1,69 @@
+.img-album {
+  width: 250px;
+  height: 250px;
+}
+
+
+.container-image {
+  color: white;
+  display: flex;
+  margin-top: -100px;
+  margin-left: 10%;
+  position: fixed;
+  z-index: 3;
+}
+
+
+.container-image .container-image-p {
+  padding: 20px;
+}
+
+
+.container-image-p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.musics-artist {
+  margin-left: 50%;
+  z-index: 0;
+}
+
+
+.music-track-id {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #00D5E2;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+}
+
+
+.music-track-id p {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+
+.music-track-id audio {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+.music-track-id label {
+  cursor: pointer;
+}
+
+
+.music-track-id input[type="checkbox"] {
+  margin-right: 5px;
+}

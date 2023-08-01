@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-depth */
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import MusicCard from '../../components/music-card/index';
@@ -5,6 +6,7 @@ import Header from '../../components/header';
 import getMusic from '../../service/musicsAPI';
 import { AlbumType, CollectionType } from '../../types';
 import Loading from '../../components/loading';
+import './album.css';
 
 export default function Album() {
   const { id } = useParams();
@@ -39,17 +41,40 @@ export default function Album() {
   }
 
   return (
-    <>
-      <Header />
-      <p>{artist?.artistName}</p>
-      { musics?.map((music) => (
-        <MusicCard
-          key={ music.trackId }
-          trackName={ music.trackName }
-          previewUrl={ music.previewUrl }
-          trackId={ music.trackId }
-        />
-      ))}
-    </>
+    <div className="container-geral">
+      <div className="container-header">
+        <Header />
+      </div>
+      <div className="container-principal">
+        <div className="container-search" />
+        <div className="container-musicas">
+          <div className="container-image">
+            <img
+              src={ artist?.artworkUrl100 }
+              alt={ `Album de ${artist?.collectionName}` }
+              className="img-album"
+            />
+            <div className="container-image-p">
+              <h2>{artist?.collectionName}</h2>
+              <p>{artist?.artistName}</p>
+            </div>
+          </div>
+          <div>
+            <div className="musics-artist">
+              { musics?.map((music) => (
+                <MusicCard
+                  key={ music.trackId }
+                  trackName={ music.trackName }
+                  previewUrl={ music.previewUrl }
+                  trackId={ music.trackId }
+                  handleClick={ () => {} }
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   );
 }

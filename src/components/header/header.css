@@ -8,9 +8,11 @@ header {
   height: 100vh;
 }
 
+
 a {
   margin-top: 25px;
 }
+
 
 .nav-link {
   color: #444955;
@@ -19,8 +21,16 @@ a {
   margin: 25px;
 }
 
+
 .img-p {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+
+.img-p img {
+  border-radius: 100px;
+  width: 150px;
+  height: 150px;
 }

@@ -31,7 +31,12 @@ export default function Header() {
         </NavLink>
       </div>
       <div className="img-p">
-        <img src="https://avatars.githubusercontent.com/u/102091772?v=4" alt="" width={ 150 } height={ 150 } />
+        <img
+          src={ user?.image }
+          alt={ `Foto de ${user?.name}` }
+          width={ 150 }
+          height={ 150 }
+        />
         <p>{user?.name}</p>
       </div>
     </header>
