@@ -84,7 +84,7 @@ export default function Search() {
               </div>
             ) : (
               <div className="container-albums">
-                {albums ? <h2>{`Resultado de álbuns de ${artist}:`}</h2> : ''}
+                {albums && <h2>{`Resultado de álbuns de ${artist}:`}</h2>}
                 <div className="albums">
                   {albums?.map((album) => (
                     <div className="album" key={ album.collectionId }>

@@ -25,6 +25,7 @@
   position: fixed;
   background: linear-gradient(to right, #003BE5, #00D5E2);
   padding-right: 20%;
+  z-index: 1
 }
 
 

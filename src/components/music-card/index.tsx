@@ -45,7 +45,7 @@ export default function MusicCard({ trackName, previewUrl, trackId,
     return <Loading />;
   }
   return (
-    <div>
+    <div className="music-track-id">
       <p>{trackName}</p>
       <audio src={ previewUrl } controls>
         <track kind="captions" />
