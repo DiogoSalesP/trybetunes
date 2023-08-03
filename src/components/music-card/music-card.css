@@ -12,3 +12,11 @@ input[type= 'checkbox'] {
   right: 50%;
   bottom: 5px;
 }
+
+.carregando-album {
+  display: flex;
+  padding: 25px;
+  position: relative;
+  left: 20%
+  ;
+}

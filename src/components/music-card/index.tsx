@@ -4,6 +4,7 @@ import { addSong, getFavoriteSongs, removeSong } from '../../service/favoriteSon
 import getMusic from '../../service/musicsAPI';
 import Loading from '../loading';
 import { AlbumType } from '../../types';
+import load from '../../images/Carregando....png';
 import './music-card.css';
 
 type MusicCardProps = {
@@ -44,7 +45,7 @@ export default function MusicCard({ trackName, previewUrl, trackId,
   }
 
   if (loanding) {
-    return <Loading />;
+    return <img className="carregando-album" src={ load } alt="Carregando..." />;
   }
   return (
     <div className="music-track-id">
@@ -67,7 +68,7 @@ export default function MusicCard({ trackName, previewUrl, trackId,
             className="heart"
             size={ 40 }
             weight="fill"
-            color={ checked ? '#EC5050' : '#444955' }
+            color={ checked ? '#EC5050' : '#eeeeee' }
           />
         </label>
       </div>
