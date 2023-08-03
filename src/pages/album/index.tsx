@@ -73,7 +73,6 @@ export default function Album() {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

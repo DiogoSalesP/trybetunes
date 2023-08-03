@@ -1,0 +1,14 @@
+input[type= 'checkbox'] {
+  appearance: none;
+}
+
+
+.container-heart input {
+  width: 25px;
+}
+
+.heart {
+  position: relative;
+  right: 50%;
+  bottom: 5px;
+}
