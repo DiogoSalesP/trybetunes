@@ -29,19 +29,28 @@ export default function Favorites() {
   }
 
   return (
-    <>
-      <Header />
-      {favoriteSong.length === 0 && <h1>Sem Músicas Favoritas</h1>}
-      {favoriteSong.map((song) => (
-        <MusicCard
-          key={ song.trackId }
-          trackName={ song.trackName }
-          previewUrl={ song.previewUrl }
-          trackId={ song.trackId }
-          handleClick={ () => handleClick(song.trackId) }
-
-        />
-      ))}
-    </>
+    <div className="container-geral">
+      <div className="container-header">
+        <Header />
+      </div>
+      <div className="container-principal">
+        <div className="container-search">
+          {favoriteSong.length !== 0
+            ? <h1>Músicas Favoritas</h1>
+            : <h1>Sem Músicas Favoritas</h1>}
+        </div>
+        <div className="container-musicas">
+          {favoriteSong.map((song) => (
+            <MusicCard
+              key={ song.trackId }
+              trackName={ song.trackName }
+              previewUrl={ song.previewUrl }
+              trackId={ song.trackId }
+              handleClick={ () => handleClick(song.trackId) }
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }

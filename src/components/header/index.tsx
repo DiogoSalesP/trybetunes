@@ -33,7 +33,7 @@ export default function Header() {
       <div className="img-p">
         <img
           src={ user?.image }
-          alt={ `Foto de ${user?.name}` }
+          alt={ user?.image && `Foto de ${user?.name}` }
           width={ 150 }
           height={ 150 }
         />
