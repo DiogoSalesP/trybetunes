@@ -11,6 +11,8 @@ header {
 
 a {
   margin-top: 25px;
+  color: inherit;
+  text-decoration: none;
 }
 
 
@@ -19,6 +21,10 @@ a {
   display: flex;
   flex-direction: column;
   margin: 25px;
+}
+
+.nav-link:hover a:hover {
+  color: #000000;
 }
 
 
