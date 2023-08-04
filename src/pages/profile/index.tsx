@@ -18,12 +18,6 @@ export default function Profile() {
     setLoading(false);
   }, []);
 
-  useEffect(() => {
-    if (user?.email.length === 0) {
-      navegate('/profile/edit');
-    }
-  });
-
   function handleClick() {
     navegate('/profile/edit');
   }
