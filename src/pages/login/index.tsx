@@ -5,6 +5,7 @@ import { createUser } from '../../service/userAPI';
 import './login.css';
 import logo from '../../images/logo.png';
 import Loading from '../../components/loading';
+import { imgCat } from '../../service/image';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ export default function Login() {
     setUser((previousState) => ({
       ...previousState,
       [name]: value,
+      image: imgCat,
     }));
   }
 
