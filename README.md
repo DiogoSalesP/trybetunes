@@ -1,5 +1,4 @@
 # Projeto Trybetunes
-# :construction: PROJETO em construção ! :construction:
 
 # Descrição
 O TrybeTunes é um projeto que busca criar uma aplicação web simples para reprodução de músicas.
