@@ -86,7 +86,7 @@ export default function ProfileEdit() {
               />
             </label>
             <label htmlFor="description">
-              Description
+              Descrição
               <input
                 name="description"
                 id="description"

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Heart } from '@phosphor-icons/react';
 import { addSong, getFavoriteSongs, removeSong } from '../../service/favoriteSongAPI';
 import getMusic from '../../service/musicsAPI';
-import Loading from '../loading';
 import { AlbumType } from '../../types';
 import load from '../../images/Carregando....png';
 import './music-card.css';
