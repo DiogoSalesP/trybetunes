@@ -2,11 +2,17 @@ import { AlbumType } from '../types';
 
 const FAVORITE_SONGS_KEY = 'favorite_songs';
 
-if (!JSON.parse(localStorage.getItem(FAVORITE_SONGS_KEY))) {
-  localStorage.setItem(FAVORITE_SONGS_KEY, JSON.stringify([]));
+function initializeLocalStorage() {
+  const localData = localStorage.getItem(FAVORITE_SONGS_KEY);
+  if (!localData) {
+    localStorage.setItem(FAVORITE_SONGS_KEY, JSON.stringify([]));
+  }
 }
 
-const readFavoriteSongs = () => JSON.parse(localStorage.getItem(FAVORITE_SONGS_KEY));
+const readFavoriteSongs = (): AlbumType[] => {
+  const localData = localStorage.getItem(FAVORITE_SONGS_KEY);
+  return JSON.parse(localData || '[]');
+};
 
 const saveFavoriteSongs = (favoriteSongs: AlbumType[]) => localStorage
   .setItem(FAVORITE_SONGS_KEY, JSON.stringify(favoriteSongs));
@@ -24,9 +30,10 @@ export function removeSong(trackId: number) {
   saveFavoriteSongs(favoriteSongs.filter((s: AlbumType) => s.trackId !== trackId));
 }
 
-export function getFavoriteSongs() {
-  const favoriteSongs = readFavoriteSongs();
-  return favoriteSongs;
+export function getFavoriteSongs(): AlbumType[] {
+  // const favoriteSongs = readFavoriteSongs();
+  initializeLocalStorage();
+  return readFavoriteSongs();
 }
 
 export default { addSong, removeSong };
